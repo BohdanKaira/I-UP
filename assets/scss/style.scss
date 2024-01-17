@@ -33,7 +33,7 @@ img {
   vertical-align: top;
   width: 100%;
   height: 100%;
-//   object-fit: cover;
+
 }
 
 ul, ol {
@@ -56,69 +56,145 @@ a, button {
   margin: 0 auto;
 }
 .green_button {
-    transition: .2s ease-in;
     a {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 4px;
     }
+    position: relative;
+    overflow: hidden;
     display: inline-block;
     height: 48px;
     width: auto;
     padding: 12px 16px 12px 8px;
     border-radius: 4px;
-    background: linear-gradient(100deg, #6BAF8D 0%, #317776 94.37%, #014964 121.56%);
-    img {
-        width: 24px;
-        height: 24px;  
+    background-image: linear-gradient(100deg, #6BAF8D 0%, #317776 94.37%, #014964 121.56%);
+    &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        background-image: linear-gradient(272deg, #6BAF8D 4.15%, #317776 94.81%, #014964 120.93%);
+        transition: opacity 1s ease-out;
+        z-index: 2;
+        opacity: 0;
     }
+    .next_green {
+        background-image: url(../icons/Arrow-Green-Button.svg);
+    }
+    .icon_wrap_button {
+        width: 24px;
+        height: 24px;
+        z-index: 5;
+    }
+    #cta_button{
+        cursor: pointer; 
+        position: absolute;
+    }
+    .arrow_button { 
+        position: absolute; 
+        width: 24px; 
+        height: 24px; 
+        animation-name: bounceAlphaOut;
+        animation-duration:1s;
+        animation-timing-function:linear;
+    }
+    @keyframes bounceAlpha {
+        0% {opacity: 1; transform: translateX(0px) ;}
+        25%{opacity: 0; transform:translateX(10px) ;}
+        26%{opacity: 0; transform:translateX(-10px) ;}
+        55% {opacity: 1; transform: translateX(0px) ;}
+      }
+    @keyframes bounceAlphaOut {
+          0% {opacity: 1; transform: translateX(0px) ;}
+          25%{opacity: 0; transform:translateX(-10px) ;}
+          26%{opacity: 0; transform:translateX(10px) ;}
+          55% {opacity: 1; transform: translateX(0px) ;}
+        }
     .button_text {
         font-family: 'Futura PT', sans-serif;
         @include fz(16);
         @include lh(24);
         color: $color-white;
-        font-weight: 400; 
+        font-weight: 400;
+        z-index: 5; 
     }
     &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    &:active {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
+        &::after {
+            opacity: 1;
+        }
+        cursor: pointer;
+        .arrow_button{
+            animation-name: bounceAlpha;
+            animation-duration:1s;
+            animation-timing-function:linear;
+        }
+    }  
 } 
 .white_button {
-    z-index: 200;
-    transition: .5s ease-in-out;
     a {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 4px;
     }
+    z-index: 5;
     display: inline-block;
     height: 48px;
     width: auto;
     padding: 12px 16px 12px 8px;
     border-radius: 4px;
     background: $color-white;
-    img {
-        width: 24px;
-        height: 24px;  
+    .next_black {
+        background-image: url(../icons/Arrow-Black.svg);
     }
+    .icon_wrap_button {
+        width: 24px;
+        height: 24px;
+    }
+    #cta_button{
+        cursor: pointer; 
+        position: absolute;
+    }
+    .arrow_button { 
+        position: absolute; 
+        width: 24px; 
+        height: 24px; 
+        animation-name: bounceAlphaOut;
+        animation-duration:1s;
+        animation-timing-function:linear;
+    }
+    @keyframes bounceAlpha {
+        0% {opacity: 1; transform: translateX(0px) ;}
+        25%{opacity: 0; transform:translateX(10px) ;}
+        26%{opacity: 0; transform:translateX(-10px) ;}
+        55% {opacity: 1; transform: translateX(0px) ;}
+      }
+    @keyframes bounceAlphaOut {
+          0% {opacity: 1; transform: translateX(0px) ;}
+          25%{opacity: 0; transform:translateX(-10px) ;}
+          26%{opacity: 0; transform:translateX(10px) ;}
+          55% {opacity: 1; transform: translateX(0px) ;}
+        }
     .button_text {
         font-family: 'Futura PT', sans-serif;
         @include fz(16);
         @include lh(24);
         color: $color-font-dark;
-        font-weight: 400; 
+        font-weight: 400;
     }
     &:hover {
-        opacity: 0.5;
-        
-    }
+        cursor: pointer;
+        .arrow_button{
+            animation-name: bounceAlpha;
+            animation-duration:1s;
+            animation-timing-function:linear;
+        }
+    }  
 }
 // HEADER //
 header {
@@ -131,7 +207,6 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 68px;
-    
 }
 nav {
     ul {
@@ -141,20 +216,7 @@ nav {
     gap: 2rem;
     li.topmenu {
         position: relative;
-        &::after {
-            content: '';
-            position: absolute;
-            left: -16px;
-            top: 50%;
-            border: 5px solid transparent; 
-            border-top: 5px solid $color-green;
-        }
         &:hover {
-            &::after {
-                transform: rotateX(180deg) translateY(70%);
-                transition: .5s ease-in-out;
-                
-            }
             .submenu {
                 opacity: 1;
                 transform: scaleY(1); 
@@ -164,6 +226,7 @@ nav {
             @include fz(14);
             @include lh(18);
             color: $color-font-grey;
+            letter-spacing: 0.14px;
             &:focus, &:hover {
                 color: $color-font-dark;
             }
@@ -171,15 +234,19 @@ nav {
     }  
     }
 }
-  
+.arrow_down {
+    background: url(../icons/Arrow-Down.svg);
+}  
 .submenu {
     position: absolute;
     left: 0;
     top: 120%;
     z-index: 5;
     background: $color-white;
-    border-radius: 5px;
-    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px #C9C9C9;
+    padding: 20px 12px;
+    width: 240px;
     opacity: 0;
     transform: scaleY(0);
     transform-origin: 0 0;
@@ -187,7 +254,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 5px;
     li {
         a {
             @include fz(14);
@@ -204,8 +271,8 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     gap: 4.625rem;
-}    
-.phone_number {
+} 
+.icon_top {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -219,11 +286,36 @@ nav {
         @include fz(14);
         @include lh(18);
         color: $color-font-grey;
-        &:focus, &:hover {
+        flex: 1;
+    }
+    .arrow {
+        animation-name: bounceAlphaOutTop;
+        animation-duration:1.4s;
+        animation-timing-function:linear;
+    }
+    &:hover {
+        a {
             color: $color-font-dark;
-        } 
+        }
+        .arrow{
+            animation-name: bounceAlphaTop;
+            animation-duration:1.4s;
+            animation-timing-function:linear;
+        }
     }
 }
+@keyframes bounceAlphaTop {
+    0% {opacity: 1; transform: translateY(0px) ;}
+    25%{opacity: 0; transform:translateY(10px) ;}
+    26%{opacity: 0; transform:translateY(-10px) ;}
+    55% {opacity: 1; transform: translateY(0px) ;}
+}
+  @keyframes bounceAlphaOutTop {
+      0% {opacity: 1; transform: translateY(0px) ;}
+      25%{opacity: 0; transform:translateY(-10px) ;}
+      26%{opacity: 0; transform:translateY(10px) ;}
+      55% {opacity: 1; transform: translateY(0px) ;}
+}   
 .switch-flex {
     display: flex;
     align-items: center;
@@ -337,9 +429,12 @@ nav {
     gap: 24px;
 }
 .card_service {
-    background: no-repeat url(../images/Card_background.png);
+    background: no-repeat url(../images/Card_background.svg);
     position: relative;
     padding: 24px;
+    &:hover {
+        background: no-repeat url(../images/Card_background_border.svg);
+    }
 }
 .card_icon {
     padding: 0 24px 24px 0;
@@ -386,6 +481,9 @@ nav {
             width: 18px;
             height: 18px;
         }
+    }
+    &:hover {
+        color: $color-font-dark;
     }
 }
 // #SERVICES //
@@ -504,10 +602,15 @@ nav {
             color: $color-font-grey;
             opacity: .4;
             width: 100%;
+            outline: 0;
+            &:focus, :active {
+                color: $color-font-dark; 
+                opacity: 1; 
+            }
         }
         &:hover {
             input, select{
-                color: $color-font-grey; 
+                color: $color-font-dark; 
                 opacity: 1; 
             }
            
@@ -518,17 +621,19 @@ nav {
   
     button.green_button {
         transition: .2s ease-in;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
         display: inline-block;
         height: 48px;
-        width: auto;
+        width: 160px;
         padding: 12px 16px 12px 8px;
         border-radius: 4px;
         border: none;
         background: linear-gradient(100deg, #6BAF8D 0%, #317776 94.37%, #014964 121.56%);
+        .button_wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
         img {
             width: 24px;
             height: 24px;  
@@ -543,3 +648,157 @@ nav {
     }
   }
 // #FORM //
+
+/// #MAIN ///
+
+// FOOTER //
+footer {
+    padding-top: 80px;
+    border-top: 1px solid #C9C9C9;
+}
+.footer_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 110px;
+}
+.footer_left {
+    position: relative;
+    color: $color-white;
+    background: linear-gradient(100deg, #6BAF8D 0%, #317776 94.37%, #014964 121.56%);
+    padding: 40px 86px 40px 40px;
+    border-radius: 24px;
+    &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        background-image: linear-gradient(272deg, #6BAF8D 4.15%, #317776 94.81%, #014964 120.93%);
+        transition: opacity 1s ease-out;
+        z-index: 2;
+        opacity: 0;
+    }
+    img {
+        margin-bottom: 118px;
+        width: auto;
+        position: relative;
+        z-index: 3;
+    }
+    .footer_license {
+        @include fz(14);
+        @include lh(18);
+        position: relative;
+        z-index: 3;
+    }
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+        cursor: pointer;
+    }
+}
+.footer_right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 24px;
+}
+.footer_list {
+    h6 {
+        @include fz(16);
+        @include lh(24);
+        font-weight: 400;
+        letter-spacing: 0.16px;
+        color: $color-font-dark;
+        margin-bottom: 16px;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 8px;
+        a {
+            @include fz(14);
+            @include lh(18);
+            color: $color-font-grey;
+            &:focus, &:hover {
+                color: $color-font-dark;
+            }
+        } 
+    }
+}
+.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    img {
+        width: 1rem;
+        height: 1rem;
+    }
+    a {
+        @include fz(14);
+        @include lh(18);
+        color: $color-font-grey;
+        flex: 1;
+    }
+    &:hover {
+        a {
+            color: $color-font-dark;
+        }
+        .arrow{
+            animation-name: bounceAlpha;
+            animation-duration:1.4s;
+            animation-timing-function:linear;
+        }
+    }
+}
+.top {
+    align-items: start;
+    
+}
+.icon_wrap {
+    width: 16px;
+    height: 16px;
+}
+#cta{
+    width:100%; cursor: pointer; position: absolute;
+}
+.arrow { 
+    position: absolute; 
+    width: 16px; height: 16px; 
+    background-size: contain; 
+    animation-name: bounceAlphaOut;
+    animation-duration:1.4s;
+    animation-timing-function:linear;
+}
+.next {
+	background-image: url(../icons/Arrow-Rigth.svg);
+}
+.phone {
+    background-image: url(../icons/phone.svg);
+}
+.mail {
+    background-image: url(../icons/Letter.svg);
+}
+.map {
+    background-image: url(../icons/Map-Point.svg);
+}
+@keyframes bounceAlpha {
+  0% {opacity: 1; transform: translateX(0px) ;}
+  25%{opacity: 0; transform:translateX(10px) ;}
+  26%{opacity: 0; transform:translateX(-10px) ;}
+  55% {opacity: 1; transform: translateX(0px) ;}
+}
+@keyframes bounceAlphaOut {
+    0% {opacity: 1; transform: translateX(0px) ;}
+    25%{opacity: 0; transform:translateX(-10px) ;}
+    26%{opacity: 0; transform:translateX(10px) ;}
+    55% {opacity: 1; transform: translateX(0px) ;}
+  }
+// #FOOTER //
