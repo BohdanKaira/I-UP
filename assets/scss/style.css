@@ -11,6 +11,8 @@ body {
   line-height: 1.5rem;
   color: #626262;
   font-weight: 400;
+  width: 100%;
+  height: 100%;
 }
 
 img {
@@ -607,6 +609,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   margin-bottom: 124px;
   background-color: #F6F6F6;
   padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 .fonds_block h3 {
@@ -624,6 +627,14 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   margin-bottom: 16px;
 }
 
+.accordion {
+  display: none;
+}
+
+.accordion.active_accordion {
+  display: block;
+}
+
 .accordion_wrap {
   margin-bottom: 80px;
 }
@@ -634,6 +645,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   margin-bottom: 24px;
 }
 .accordion_wrap nav .accordion_filter_button {
+  cursor: pointer;
   position: relative;
   font-family: "Futura PT";
   font-size: 2rem;
@@ -657,11 +669,11 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   visibility: hidden;
   transition: visibility 0.5s, opacity 0.5s;
 }
-.accordion_wrap nav .accordion_filter_button:hover, .accordion_wrap nav .accordion_filter_button:active {
+.accordion_wrap nav .accordion_filter_button:hover, .accordion_wrap nav .accordion_filter_button.active_button {
   color: #0D0D0D;
   opacity: 1;
 }
-.accordion_wrap nav .accordion_filter_button:hover::after, .accordion_wrap nav .accordion_filter_button:active::after {
+.accordion_wrap nav .accordion_filter_button:hover::after, .accordion_wrap nav .accordion_filter_button.active_button::after {
   visibility: visible;
 }
 
@@ -995,7 +1007,6 @@ footer {
 #cta {
   width: 100%;
   cursor: pointer;
-  position: absolute;
 }
 
 .arrow {

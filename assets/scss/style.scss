@@ -28,6 +28,8 @@ body {
   @include lh(24);
   color: $color-font-grey;
   font-weight: 400;
+  width: 100%;
+  height: 100%;
 }
 
 img {
@@ -553,6 +555,7 @@ nav {
     margin-bottom: 124px;
     background-color: $color-light-gray;
     padding-bottom: 80px;
+    padding-top: 80px;
 }
 .fonds_block {
     h3 {
@@ -569,6 +572,12 @@ nav {
     @include lh(24);
     margin-bottom: 16px;
 }
+.accordion {
+    display: none;
+}
+.accordion.active_accordion {
+    display: block;
+}
 .accordion_wrap {
     margin-bottom: 80px;
     nav {
@@ -577,6 +586,7 @@ nav {
         gap: 24px;
         margin-bottom: 24px;
         .accordion_filter_button {
+            cursor: pointer;
             position: relative;
             font-family: "Futura PT";
             @include fz(32);
@@ -599,16 +609,19 @@ nav {
                 visibility: hidden; 
                 transition: visibility 0.5s, opacity 0.5s;
             }
-            &:hover, &:active {
+            &:hover,
+            &.active_button {
                 color: $color-font-dark;
                 opacity: 1;
                 &::after {
                     visibility: visible;
                 }
             }
+            
         }
     }  
 }
+
 .accordion__item {
     margin-bottom: 20px;
     cursor: pointer;
@@ -944,18 +957,18 @@ footer {
 }
 .top {
     align-items: start;
-    
 }
 .icon_wrap {
     width: 16px;
     height: 16px;
 }
 #cta{
-    width:100%; cursor: pointer; position: absolute;
+    width:100%; cursor: pointer; 
 }
 .arrow { 
     position: absolute; 
-    width: 16px; height: 16px; 
+    width: 16px; 
+    height: 16px; 
     background-size: contain; 
     animation-name: bounceAlphaOut;
     animation-duration:1.4s;

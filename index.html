@@ -297,10 +297,10 @@
                 </div>
                 <div class="accordion_wrap">
                     <nav>
-                        <button class="accordion_filter_button" type="button">Венчурні фонди</button>
-                        <button class="accordion_filter_button" type="button">Кваліфікаційні фонди</button>
+                        <button class="accordion_filter_button active_button" id="venturebutton" type="button" onclick="toggleAccordion('venture'); toggleButton('venturebutton');">Венчурні фонди</button>
+                        <button class="accordion_filter_button" type="button" id="qualifybutton" onclick="toggleAccordion('qualify'); toggleButton('qualifybutton');">Кваліфікаційні фонди</button>
                     </nav>
-                    <div class="accordion">
+                    <div class="accordion active_accordion" id="ventureAccordion">
                         <div class="accordion__item">
                             <div class="accordion__btn">
                                 <p class="accordion_number">01</p>
@@ -519,7 +519,153 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="accordion" id="qualifyAccordion">
+                        <div class="accordion__item">
+                            <div class="accordion__btn">
+                                <p class="accordion_number">01</p>
+                                <div class="accordion_title">
+                                    <p>АТ «КЗКІФ «КРЕДЕНС КАПІТАЛ»</p>
+                                    <img src="./assets/icons/Plus.svg" alt="Plus">
+                                </div>
+                            </div>
+                            <div class="accordion__content">
+                                <div class="panel_wrap">
+                                    <div class="panel_left"></div>
+                                    <div class="panel_right">
+                                        <div class="fond_descr">
+                                            <p>Інформація про фонд:</p>
+                                            <ul>
+                                                <li class="top_dot">Повне найменування: АКЦІОНЕРНЕ ТОВАРИСТВО «КВАЛІФІКАЦІЙНИЙ ЗАКРИТИЙ КОРПОРАТИВНИЙ ІНВЕСТИЦІЙНИЙ ФОНД «КРЕДЕНС КАПІТАЛ»</li>
+                                                <li class="top_dot">Скорочене найменування: АТ «КЗКІФ «КРЕДЕНС КАПІТАЛ»</li>
+                                                <li class="top_dot">Місцезнаходження: 36009, м. Полтава, вул. Степана Кондратенка, буд.6</li>
+                                                <li class="top_dot">Дата державної реєстрації корпоративного фонду: 12.03.2020, код за ЄДРПОУ: 43561956</li>
+                                                <li class="top_dot">Дата та номер свідоцтва про внесення корпоративного фонду до ЄДРІСІ: 22.04.2020, № 00891, реєстраційний код за ЄДРІСІ: 13500891</li>
+                                                <li class="top_dot">Строк діяльності: з 22.04.2020 по 22.04.2040</li>
+                                                <li class="top_dot">Спосіб розміщення випуску акцій: приватне розміщення</li>
+                                                <li class="top_dot">Дата початку управління ТОВ «КУА «І-УП» активами фонду: з 01.08.2020 р.</li>
+                                            </ul>
+                                            <div class="line"></div>
+                                            <div class="card_button">
+                                                <a href="#" >
+                                                    <img src="./assets/icons/Forward.svg" alt="Forward">
+                                                    Детальніше
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <div class="accordion__btn">
+                                <p class="accordion_number">02</p>
+                                <div class="accordion_title">
+                                    <p>АТ «КЗКІФ «ОБРОК»</p>
+                                    <img src="./assets/icons/Plus.svg" alt="Plus">
+                                </div>
+                            </div>
+                            <div class="accordion__content">
+                                <div class="panel_wrap">
+                                    <div class="panel_left"></div>
+                                    <div class="panel_right">
+                                        <div class="fond_descr">
+                                            <p>Інформація про фонд:</p>
+                                            <ul>
+                                                <li class="top_dot">Повне найменування: АКЦІОНЕРНЕ ТОВАРИСТВО «КВАЛІФІКАЦІЙНИЙ ЗАКРИТИЙ КОРПОРАТИВНИЙ ІНВЕСТИЦІЙНИЙ ФОНД «ОБРОК»</li>
+                                                <li class="top_dot">Скорочене найменування: АТ «КЗКІФ «ОБРОК»</li>
+                                                <li class="top_dot">Місцезнаходження: 04073, м. Київ, проспект Степана Бандери, буд.16</li>
+                                                <li class="top_dot">Дата державної реєстрації корпоративного фонду: 02.06.2020, код за ЄДРПОУ: 43643478</li>
+                                                <li class="top_dot">Дата та номер свідоцтва про внесення корпоративного фонду до ЄДРІСІ: 22.06.2020, № 00922, реєстраційний код за ЄДРІСІ: 13500922</li>
+                                                <li class="top_dot">Строк діяльності: з 22.06.2020 по 22.06.2040</li>
+                                                <li class="top_dot">Спосіб розміщення випуску акцій: приватне розміщення</li>
+                                                <li class="top_dot">Дата початку управління ТОВ «КУА «І-УП» активами фонду: з 01.08.2020 р.</li>
+                                            </ul>
+                                            <div class="line"></div>
+                                            <div class="card_button">
+                                                <a href="#" >
+                                                    <img src="./assets/icons/Forward.svg" alt="Forward">
+                                                    Детальніше
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <div class="accordion__btn">
+                                <p class="accordion_number">03</p>
+                                <div class="accordion_title">
+                                    <p>АТ «КЗКІФ «С-ЕНЕРГІЯ»</p>
+                                    <img src="./assets/icons/Plus.svg" alt="Plus">
+                                </div>
+                            </div>
+                            <div class="accordion__content">
+                                <div class="panel_wrap">
+                                    <div class="panel_left"></div>
+                                    <div class="panel_right">
+                                        <div class="fond_descr">
+                                            <p>Інформація про фонд:</p>
+                                            <ul>
+                                                <li class="top_dot">Повне найменування: АКЦІОНЕРНЕ ТОВАРИСТВО «КВАЛІФІКАЦІЙНИЙ ЗАКРИТИЙ КОРПОРАТИВНИЙ ІНВЕСТИЦІЙНИЙ ФОНД «С-ЕНЕРГІЯ»</li>
+                                                <li class="top_dot">Скорочене найменування: АТ «КЗКІФ «С-ЕНЕРГІЯ»</li>
+                                                <li class="top_dot">Місцезнаходження: 01024, місто Київ, вул. Богомольця, буд.7/14, приміщення 182</li>
+                                                <li class="top_dot">Дата державної реєстрації корпоративного фонду:</li>
+                                                <li class="top_dot">Дата та номер свідоцтва про внесення корпоративного фонду до ЄДРІСІ: 19.03.2018, код за ЄДРПОУ: 42007286</li>
+                                                <li class="top_dot">Строк діяльності: з 08.05.2018 по 08.05.2038</li>
+                                                <li class="top_dot">Спосіб розміщення випуску акцій: приватне розміщення</li>
+                                                <li class="top_dot">Дата початку управління ТОВ «КУА «І-УП» активами фонду: з 01.11.2020 р.</li>
+                                            </ul>
+                                            <div class="line"></div>
+                                            <div class="card_button">
+                                                <a href="#" >
+                                                    <img src="./assets/icons/Forward.svg" alt="Forward">
+                                                    Детальніше
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <div class="accordion__btn">
+                                <p class="accordion_number">04</p>
+                                <div class="accordion_title">
+                                    <p>АТ «КЗКІФ «СІЛЬВЕР ІНВЕСТМЕНТ»</p>
+                                    <img src="./assets/icons/Plus.svg" alt="Plus">
+                                </div>
+                            </div>
+                            <div class="accordion__content">
+                                <div class="panel_wrap">
+                                    <div class="panel_left"></div>
+                                    <div class="panel_right">
+                                        <div class="fond_descr">
+                                            <p>Інформація про фонд:</p>
+                                            <ul>
+                                                <li class="top_dot">Повне найменування: АКЦІОНЕРНЕ ТОВАРИСТВО «КВАЛІФІКАЦІЙНИЙ ЗАКРИТИЙ КОРПОРАТИВНИЙ ІНВЕСТИЦІЙНИЙ ФОНД «СІЛЬВЕР ІНВЕСТМЕНТ»</li>
+                                                <li class="top_dot">Скорочене найменування: АТ «КЗКІФ «СІЛЬВЕР ІНВЕСТМЕНТ»</li>
+                                                <li class="top_dot">Місцезнаходження: 03038, м. Київ, вул. Ямська, буд. 28 А</li>
+                                                <li class="top_dot">Дата державної реєстрації корпоративного фонду: 05.01.2022, код за ЄДРПОУ: 44601706</li>
+                                                <li class="top_dot">Дата та номер свідоцтва про внесення корпоративного фонду до ЄДРІСІ: 23.02.2022, № 01455, реєстраційний код за ЄДРІСІ: 13501455</li>
+                                                <li class="top_dot">Строк діяльності: з 23.02.2022 по 23.02.2042</li>
+                                                <li class="top_dot">Спосіб розміщення випуску акцій: приватне розміщення</li>
+                                                <li class="top_dot">Дата початку управління ТОВ «КУА «І-УП» активами фонду: з 10.01.2022 р.</li>
+                                            </ul>
+                                            <div class="line"></div>
+                                            <div class="card_button">
+                                                <a href="#" >
+                                                    <img src="./assets/icons/Forward.svg" alt="Forward">
+                                                    Детальніше
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
                 <div class="fond_button">
                     <div class="green_button">
                         <a>
