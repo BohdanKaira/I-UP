@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   padding: 0;
   margin: 0;
@@ -555,9 +556,12 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   color: #fff;
 }
 .green_block h2 {
+  font-size: 3rem;
+  line-height: 3.5rem;
   font-weight: 700;
-  max-width: 826px;
+  max-width: 827px;
   margin-bottom: 168px;
+  letter-spacing: -0.48px;
 }
 .green_block .diagrama {
   width: auto;
@@ -597,6 +601,182 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 16px;
+}
+
+.fonds {
+  margin-bottom: 124px;
+  background-color: #F6F6F6;
+  padding-bottom: 80px;
+}
+
+.fonds_block h3 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 400;
+  letter-spacing: -0.48px;
+  color: #0D0D0D;
+  margin-bottom: 140px;
+}
+
+.fond_subtitle {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.accordion_wrap {
+  margin-bottom: 80px;
+}
+.accordion_wrap nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.accordion_wrap nav .accordion_filter_button {
+  position: relative;
+  font-family: "Futura PT";
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+  color: #626262;
+  opacity: 0.5;
+  border: none;
+  background: inherit;
+}
+.accordion_wrap nav .accordion_filter_button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -24px;
+  width: 100%;
+  height: 4px;
+  background-color: #6BAF8D;
+  z-index: 10;
+  visibility: hidden;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+.accordion_wrap nav .accordion_filter_button:hover, .accordion_wrap nav .accordion_filter_button:active {
+  color: #0D0D0D;
+  opacity: 1;
+}
+.accordion_wrap nav .accordion_filter_button:hover::after, .accordion_wrap nav .accordion_filter_button:active::after {
+  visibility: visible;
+}
+
+.accordion__item {
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #C9C9C9;
+  border-top: 1px solid #C9C9C9;
+}
+
+.accordion__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  width: 100%;
+  background-color: inherit;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-family: "Futura PT";
+}
+.accordion__btn .accordion_number {
+  color: #626262;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.16px;
+}
+.accordion__btn .accordion_title {
+  flex-basis: 49%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion__btn .accordion_title p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.24px;
+  font-weight: 700;
+  color: #0D0D0D;
+  max-width: 450px;
+}
+.accordion__btn img {
+  height: 40px;
+  width: 40px;
+  rotate: 0deg;
+  transition: all 0.5s ease-in-out;
+}
+.accordion__btn:hover img {
+  rotate: 90deg;
+}
+
+.accordion__content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 1.5s;
+}
+
+.active {
+  transition: all 1s ease-in;
+}
+.active .accordion__btn img {
+  rotate: 45deg;
+}
+.active .accordion__content {
+  max-height: 1000px;
+  transition: max-height 3s;
+}
+
+.panel_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.panel_wrap .panel_right {
+  flex-basis: 49%;
+}
+
+.fond_descr {
+  padding-bottom: 32px;
+}
+.fond_descr p {
+  margin-bottom: 24px;
+}
+.fond_descr ul {
+  padding-left: 25px;
+  margin-bottom: 16px;
+}
+.fond_descr ul li {
+  position: relative;
+  color: #0D0D0D;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.fond_descr ul li:after {
+  content: "•";
+  position: absolute;
+  color: inherit;
+  left: -20px;
+}
+.fond_descr ul .top_dot::after {
+  top: 1px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #C9C9C9;
+  margin-bottom: 16px;
+}
+
+.fond_button {
+  text-align: center;
 }
 
 .form {

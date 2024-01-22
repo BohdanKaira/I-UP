@@ -6,6 +6,7 @@ $color-font-dark: #0D0D0D;
 $color-green: #6BAF8D;
 $color-white: #fff;
 $color-light-gray: #F6F6F6;
+$color-medium-gray: #C9C9C9;
 
 *, *::before, *::after {
   padding: 0;
@@ -499,9 +500,12 @@ nav {
     padding: 48px;
     color: $color-white;
     h2 {
+        @include fz(48);
+        @include lh(56); 
         font-weight: 700;
-        max-width: 826px;
+        max-width: 827px;
         margin-bottom: 168px;
+        letter-spacing: -0.48px;
     }
     .diagrama {
         width: auto;
@@ -545,6 +549,186 @@ nav {
 // #ABOUT //
 
 // FONDS //
+.fonds {
+    margin-bottom: 124px;
+    background-color: $color-light-gray;
+    padding-bottom: 80px;
+}
+.fonds_block {
+    h3 {
+        @include fz(48);
+        @include lh(56);
+        font-weight: 400;
+        letter-spacing: -0.48px;
+        color: $color-font-dark;
+        margin-bottom: 140px;
+    }
+}
+.fond_subtitle {
+    @include fz(16);
+    @include lh(24);
+    margin-bottom: 16px;
+}
+.accordion_wrap {
+    margin-bottom: 80px;
+    nav {
+        display: flex;
+        justify-content: flex-start;
+        gap: 24px;
+        margin-bottom: 24px;
+        .accordion_filter_button {
+            position: relative;
+            font-family: "Futura PT";
+            @include fz(32);
+            @include lh(40);
+            font-weight: 400;
+            letter-spacing: -0.32px;
+            color: $color-font-grey;
+            opacity: .5;
+            border: none;
+            background: inherit;
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -24px;
+                width: 100%;
+                height: 4px;
+                background-color: $color-green;
+                z-index: 10;
+                visibility: hidden; 
+                transition: visibility 0.5s, opacity 0.5s;
+            }
+            &:hover, &:active {
+                color: $color-font-dark;
+                opacity: 1;
+                &::after {
+                    visibility: visible;
+                }
+            }
+        }
+    }  
+}
+.accordion__item {
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid $color-medium-gray;
+    border-top: 1px solid $color-medium-gray;
+}
+
+.accordion__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    width: 100%;
+    background-color: inherit;
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-family: "Futura PT";
+    .accordion_number {
+        color: $color-font-grey; 
+        @include fz(16);
+        @include lh(24);
+        letter-spacing: 0.16px;
+    }
+    .accordion_title {
+        flex-basis: 49%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            @include fz(24);
+            @include lh(32);
+            letter-spacing: -0.24px;
+            font-weight: 700;
+            color: $color-font-dark;
+            max-width: 450px;
+        }
+    }
+    img {
+        height: 40px;
+        width: 40px;
+        rotate: 0deg;
+        transition: all .5s ease-in-out;
+        
+    }
+    &:hover {
+        img {
+            rotate: 90deg;
+        }
+    }
+
+}
+.accordion__content {
+overflow: hidden;
+max-height: 0;
+transition: max-height 1.5s;
+}
+
+.active {
+    transition: all 1s ease-in;
+    .accordion__btn {
+        img {
+            rotate: 45deg;
+            
+        }
+    }
+    .accordion__content {
+        max-height: 1000px;
+        transition: max-height 3s;
+    }
+}
+
+.panel_wrap {
+display: flex;
+justify-content: space-between;
+align-items: center;
+.panel_right {
+    flex-basis: 49%; 
+}
+}
+.fond_descr {
+padding-bottom: 32px;
+p {
+    margin-bottom: 24px;
+}
+ul {
+    padding-left: 25px;
+    margin-bottom: 16px;
+    li {
+        position: relative;
+        color: $color-font-dark;
+        @include fz(16);
+        @include lh(24);
+        &:after {
+            content: '•';
+            position: absolute;
+            color: inherit;
+            left: -20px;
+        }
+    }
+    .top_dot {
+        &::after {
+            top: 1px;
+        }
+    }
+}
+}
+.line {
+width: 100%;
+height: 1px;
+background-color: $color-medium-gray;
+margin-bottom: 16px;
+}
+
+.fond_button {
+text-align: center;
+
+}
 
 // #FONDS //
 
