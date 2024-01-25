@@ -1,5 +1,29 @@
 "use strict";
 
+window.onbeforeunload = function () {
+  localStorage.setItem('scrollPosition', window.scrollY);
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  var savedScrollPosition = localStorage.getItem('scrollPosition');
+
+  if (savedScrollPosition !== null) {
+    window.scrollTo(0, savedScrollPosition);
+    localStorage.removeItem('scrollPosition');
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var checkbox = document.querySelector('.hamburger_menu input');
+  var navMenu = document.querySelector('.mob_menu');
+  checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+      navMenu.classList.add('active_menu');
+    } else {
+      navMenu.classList.remove('active_menu');
+    }
+  });
+});
+
 function Accordion() {
   var btn = document.querySelectorAll(".accordion__btn");
   btn.forEach(function (i) {
@@ -20,6 +44,26 @@ function Accordion() {
 
 Accordion();
 
+function AccordionSubMenu() {
+  var btn = document.querySelectorAll(".icon_top_accordion_btn");
+  btn.forEach(function (i) {
+    i.addEventListener("click", function () {
+      var parent = i.parentNode;
+
+      if (parent.classList.contains("active_accordion_menu")) {
+        parent.classList.remove("active_accordion_menu");
+      } else {
+        document.querySelectorAll(".mobmenu_accordion_item").forEach(function (child) {
+          return child.classList.remove("active_accordion_menu");
+        });
+        parent.classList.add("active_accordion_menu");
+      }
+    });
+  });
+}
+
+AccordionSubMenu();
+
 function toggleAccordion(accordionId) {
   document.querySelectorAll('.accordion').forEach(function (accordion) {
     accordion.classList.remove('active_accordion');
@@ -33,22 +77,4 @@ function toggleButton(buttonId) {
   });
   var clickedButton = document.getElementById(buttonId);
   clickedButton.classList.add('active_button');
-} // function toggleButton(buttonId) {
-//     var button1 = document.getElementsByClassName('venturebutton');
-//     var button2 = document.getElementById('qualifybutton');
-//     var clickedButton = document.getElementById(buttonId);
-//     clickedButton.classList.add('active_button');
-//     if (buttonId === 'venturebutton') {
-//         button2.classList.remove('active_button');
-//     } else if (buttonId === 'qualifybutton') {
-//         button1.classList.remove('active_button');
-//     }
-//     console.log(23);
-// }
-// function toggleClass(buttonId) {
-//     var clickedButton = document.getElementById(buttonId);
-//     clickedButton.classList.add('active_button');
-//     var otherButtonId = (buttonId === 'venturebutton') ? 'qualifybutton' : 'venturebutton';
-//     var otherButton = document.getElementById(otherButtonId);
-//     otherButton.classList.remove('active_button');
-// }
+}

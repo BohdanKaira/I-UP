@@ -241,28 +241,29 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 68px;
+  position: relative;
 }
 
-nav ul {
+nav.main_nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 16px;
 }
-nav ul li.topmenu {
+nav.main_nav ul li.topmenu {
   position: relative;
 }
-nav ul li.topmenu:hover .submenu {
+nav.main_nav ul li.topmenu:hover .submenu {
   opacity: 1;
   transform: scaleY(1);
 }
-nav ul li.topmenu a {
+nav.main_nav ul li.topmenu a {
   font-size: 0.875rem;
   line-height: 1.125rem;
   color: #626262;
   letter-spacing: 0.14px;
 }
-nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
+nav.main_nav ul li.topmenu a:focus, nav.main_nav ul li.topmenu a:hover {
   color: #0D0D0D;
 }
 
@@ -379,6 +380,157 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   gap: 1rem;
 }
 
+.hamburger_menu {
+  display: none;
+  position: relative;
+}
+.hamburger_menu input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+.hamburger_menu span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #626262;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.hamburger_menu span:first-child {
+  transform-origin: 0% 0%;
+}
+.hamburger_menu span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+.hamburger_menu input:checked ~ span {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -3px);
+  background: #0D0D0D;
+}
+.hamburger_menu input:checked ~ span:nth-last-child(2) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+.hamburger_menu input:checked ~ span:nth-last-child(3) {
+  transform: rotate(45deg) translate(0, -2px);
+}
+
+.mob_menu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 68px;
+  background-color: #fff;
+  margin-top: 24px;
+  z-index: 100;
+}
+.mob_menu h6 {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.mob_menu .mobmenu_li .sub_menu_item {
+  padding: 12px 0 !important;
+}
+.mob_menu .mobmenu_li .sub_menu_item .no_padding {
+  padding: 0;
+}
+.mob_menu .mobmenu_li .sub_menu_item .mob_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.mob_menu .mobmenu_li .sub_menu_item .mob_title .icon_wrap {
+  width: 24px;
+  height: 24px;
+}
+.mob_menu .mobmenu_li .sub_menu_item .mob_title .arrow_down {
+  width: 24px;
+  height: 24px;
+}
+.mob_menu .mobmenu_li .sub_menu_item .mob_title .arrow {
+  animation: none;
+}
+.mob_menu .mobmenu_li .sub_menu_item a {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #626262;
+  flex: 1;
+}
+.mob_menu .mobmenu_li .mob_submenu {
+  background: #fff;
+  padding: 8px 0 0 32px;
+  width: 100%;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.mob_menu .mobmenu_li .mob_submenu li a {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: #626262;
+}
+.mob_menu .mobmenu_li .mob_submenu li a:focus, .mob_menu .mobmenu_li .mob_submenu li a:hover {
+  color: #0D0D0D;
+}
+.mob_menu .contact_list ul {
+  margin-bottom: 38px;
+}
+.mob_menu .contact_list ul li {
+  padding: 12px 0;
+  border-bottom: 1px solid #C9C9C9;
+}
+.mob_menu .contact_list ul li .icon .icon_wrap {
+  width: 24px;
+  height: 24px;
+}
+.mob_menu .contact_list ul li .icon .phone, .mob_menu .contact_list ul li .icon .mail, .mob_menu .contact_list ul li .icon .map {
+  width: 24px;
+  height: 24px;
+}
+.mob_menu .contact_list ul li .icon a {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.mob_menu .green_button {
+  width: 100%;
+  margin-bottom: 46px;
+}
+
+.mob_menu.active_menu {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .hamburger_menu {
+    display: block;
+  }
+
+  .main_nav {
+    display: none;
+  }
+
+  .icon_top {
+    display: none;
+  }
+}
 .head {
   margin-bottom: 85px;
 }
@@ -405,6 +557,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   line-height: 5rem;
   color: #0D0D0D;
   margin-bottom: 40px;
+  max-width: 550px;
 }
 
 .head_text {
@@ -415,7 +568,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
 }
 
 .license {
-  margin-top: 195px;
+  margin-top: 186px;
   max-width: 450px;
   font-size: 0.875rem;
   line-height: 1.125rem;
@@ -423,7 +576,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
 
 .head_right {
   display: grid;
-  grid-template-columns: 306px 306px;
+  grid-template-columns: 2fr;
   grid-template-rows: repeat(5, 142px);
   gap: 24px;
 }
@@ -608,6 +761,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
 .fonds {
   margin-bottom: 124px;
   background-color: #F6F6F6;
+  border-radius: 24px;
   padding-bottom: 80px;
   padding-top: 80px;
 }
@@ -678,10 +832,16 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
 }
 
 .accordion__item {
-  margin-bottom: 20px;
   cursor: pointer;
   border-bottom: 1px solid #C9C9C9;
+}
+
+.border_top {
   border-top: 1px solid #C9C9C9;
+}
+
+.no_border {
+  border: none;
 }
 
 .accordion__btn {
@@ -839,7 +999,7 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   letter-spacing: 0.16px;
   display: inline-block;
 }
-.contact-form .row_wrap input, .contact-form .row_wrap select {
+.contact-form .row_wrap input {
   font-family: "Futura PT", sans-serif;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -847,15 +1007,17 @@ nav ul li.topmenu a:focus, nav ul li.topmenu a:hover {
   border: none;
   background: inherit;
   color: #626262;
-  opacity: 0.4;
   width: 100%;
   outline: 0;
 }
-.contact-form .row_wrap input:focus, .contact-form .row_wrap input :active, .contact-form .row_wrap select:focus, .contact-form .row_wrap select :active {
+.contact-form .row_wrap input::placeholder {
+  opacity: 0.4;
+}
+.contact-form .row_wrap input:hover, .contact-form .row_wrap input:active {
   color: #0D0D0D;
   opacity: 1;
 }
-.contact-form .row_wrap:hover input, .contact-form .row_wrap:hover select {
+.contact-form .row_wrap input:hover::placeholder, .contact-form .row_wrap input:active::placeholder {
   color: #0D0D0D;
   opacity: 1;
 }
